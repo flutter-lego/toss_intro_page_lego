@@ -1,0 +1,42 @@
+name: toss_intro_page_lego
+description: "toss style intro screen for flutter"
+#publish_to: 'none'
+#repository: https://github.com/melodysdreamj/lego
+
+version: 1.0.0
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: #@add
+  gap: #@add
+  june_flow_util:
+  styled_widget: #@add
+  modal_bottom_sheet: #@add
+  keyboard_attachable: #@add
+  flutter_zoom_drawer: #@add
+  flutter_screenutil:
+  bot_toast:
+  auto_size_text: #@add
+  flutter_color: #@add
+  tuple: #@add
+  infinite_listview: #@add
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints:
+  screenutil_lego: #@add
+  bot_toast_lego: #@add
+  widget_binding_lego: #@add
+
+flutter:
+  assets:
+    - assets/lego/toss_intro_page_lego/
+  uses-material-design: true
+
+topics:
+  - lego
