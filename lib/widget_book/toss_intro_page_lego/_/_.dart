@@ -3,10 +3,11 @@ import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_color/flutter_color.dart';
+import 'package:gap/gap.dart';
 import 'package:infinite_listview/infinite_listview.dart';
+import 'package:june_flow_util/june_flow_util.dart';
+import 'package:styled_widget/styled_widget.dart';
 import 'package:tuple/tuple.dart';
-
-import '../../../../../../../../../../../main.dart';
 
 class NewView extends StatefulWidget {
   const NewView({super.key});
@@ -17,13 +18,17 @@ class NewView extends StatefulWidget {
 
 class _NewViewState extends State<NewView> {
   List<Tuple3<String, String, String>> introData = [
-    Tuple3("assets/lego/toss_intro_page_lego/money.png", "${"Hidden insurance"}\n${"Find"}", ""),
-    Tuple3("assets/lego/toss_intro_page_lego/money.png", "${"Lifetime"}\n${"Free remittance"}", ""),
-    Tuple3("assets/lego/toss_intro_page_lego/hospital.png", "${"Medical expenses"}\n${"Get refunded"}", ""),
-    Tuple3("assets/lego/toss_intro_page_lego/vaccine.png", "${"Free"}\n${"Vaccine insurance"}", ""),
-    Tuple3("assets/lego/toss_intro_page_lego/money.png", "${"Government subsidy"}\n${"Find"}", ""),
+    Tuple3("assets/lego/toss_intro_page_lego/money.png",
+        "${"Hidden insurance"}\n${"Find"}", ""),
+    Tuple3("assets/lego/toss_intro_page_lego/money.png",
+        "${"Lifetime"}\n${"Free remittance"}", ""),
+    Tuple3("assets/lego/toss_intro_page_lego/hospital.png",
+        "${"Medical expenses"}\n${"Get refunded"}", ""),
+    Tuple3("assets/lego/toss_intro_page_lego/vaccine.png",
+        "${"Free"}\n${"Vaccine insurance"}", ""),
+    Tuple3("assets/lego/toss_intro_page_lego/money.png",
+        "${"Government subsidy"}\n${"Find"}", ""),
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +76,7 @@ class _NewViewState extends State<NewView> {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(
-                                  introData[index % introData.length]
-                                      .item1),
+                                  introData[index % introData.length].item1),
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -100,23 +104,17 @@ class _NewViewState extends State<NewView> {
                             .textColor(Colors.grey)
                             .fontWeight(FontWeight.bold)
                             .textAlignment(TextAlign.center)
-                            .textStyle(Theme.of(context)
-                            .textTheme
-                            .bodyLarge!),
+                            .textStyle(Theme.of(context).textTheme.bodyLarge!),
                         Gap(5),
                       ],
-                    )
-                        .padding(horizontal: 10)
-                        .height(223)
-                        .width(180)
-                        .decorated(
+                    ).padding(horizontal: 10).height(223).width(180).decorated(
                         borderRadius: BorderRadius.circular(20),
-                        color: MediaQuery.of(context).platformBrightness == Brightness.dark
+                        color: MediaQuery.of(context).platformBrightness ==
+                                Brightness.dark
                             ? Theme.of(context)
-                            .scaffoldBackgroundColor
-                            .lighter(3)
-                            : Theme.of(context)
-                            .scaffoldBackgroundColor);
+                                .scaffoldBackgroundColor
+                                .lighter(3)
+                            : Theme.of(context).scaffoldBackgroundColor);
                   },
                   modeSpeed: 45,
                   axis: Axis.horizontal,
@@ -172,10 +170,10 @@ class _NewViewState extends State<NewView> {
                 .padding(vertical: 15, horizontal: 20),
           )
               .padding(
-            horizontal: 20,
-            vertical: 7,
-          )
-              .width(1.sw),
+                horizontal: 20,
+                vertical: 7,
+              )
+              .width(double.infinity),
           // }, width: 0.85.sw, height: 60, borderRadius: 15),
           Gap(20),
         ],
@@ -188,13 +186,13 @@ class _NewViewState extends State<NewView> {
 class FlowListView extends StatefulWidget {
   FlowListView(
       {super.key,
-        required this.itemWidget,
-        this.padding,
-        this.modeSpeed,
-        this.axis,
-        this.h = 0,
-        this.w = 0,
-        this.reverseAnimationFlow = false});
+      required this.itemWidget,
+      this.padding,
+      this.modeSpeed,
+      this.axis,
+      this.h = 0,
+      this.w = 0,
+      this.reverseAnimationFlow = false});
 
   final Widget Function(int) itemWidget;
   final double? padding;
@@ -245,7 +243,8 @@ class _FlowListViewState extends State<FlowListView> {
   }
 }
 
-
 main() async {
-  return buildApp(home: NewView());
+  return runApp(MaterialApp(
+    home: NewView(),
+  ));
 }

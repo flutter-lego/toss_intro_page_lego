@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../../../../../main.dart';
-
 class NewView extends StatefulWidget {
   const NewView({super.key});
 
@@ -20,5 +18,7 @@ class _NewViewState extends State<NewView> {
 }
 
 main() async {
-  return buildApp(home: Scaffold(body: NewView().center()));
+  return runApp(MaterialApp(
+    home: NewView(),
+  ));
 }
